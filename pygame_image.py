@@ -18,7 +18,7 @@ def main():
     kk_img = pg.transform.flip(kk_img, True, False) #左右反転
     kk_img = pg.transform.rotozoom(kk_img, 10, 1.0) #10度反時計回転
 
-    x = 0
+    x = 0    
 
     kk_rct = kk_img.get_rect()
     kk_rct.center = 300, 200
@@ -28,14 +28,20 @@ def main():
             if event.type == pg.QUIT: return
 
         key_lst = pg.key.get_pressed()
+        x1 = 0
+        y1 = 0
+        
         if key_lst[pg.K_UP]:
-            kk_rct.move_ip(0, -1)
+            y1 = -1
         if key_lst[pg.K_DOWN]:
-            kk_rct.move_ip(0, +1)
+            y1 = +1
         if key_lst[pg.K_LEFT]:
-            kk_rct.move_ip(-1, 0)
+            x1 = -1
         if key_lst[pg.K_RIGHT]:
-            kk_rct.move_ip(+2, 0)
+            x1 = +2
+
+        kk_rct.move_ip(x1, y1)
+
 
         x = tmr % 3200
 
