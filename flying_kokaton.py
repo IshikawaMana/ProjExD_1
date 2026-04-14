@@ -50,7 +50,7 @@ def main():
         screen.blit(bg_img, (-x + 3200, 0))
         
         screen.blit(kk_img, kk_rct)
-        kk_rct.move_ip(-1, 0)
+        kk_rct.centerx -= 1
 
         tmr += 1   
         clock.tick(200)
