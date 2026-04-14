@@ -16,17 +16,19 @@ def main():
     kk_img = pg.transform.flip(kk_img, True, False) #左右反転
     kk_img = pg.transform.rotozoom(kk_img, 10, 1.0) #10度反時計回転
 
+    bg_rct = bg_img.get_rect()
+
     while True:
         for event in pg.event.get():
             if event.type == pg.QUIT: return
 
-        screen.blit(bg_img, [0, 0])
-        screen.blit(kk_img, [300,200])
+        bg_rct.move_ip(-1, 0)
+        screen.blit(bg_img, bg_rct)
 
-        pg.display.update()
+        screen.blit(kk_img, [300, 200])
 
         tmr += 1        
-        clock.tick(10)
+        clock.tick(200)
 
         pg.display.update()
 
